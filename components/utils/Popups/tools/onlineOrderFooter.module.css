@@ -1,0 +1,48 @@
+.footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10001;
+    transition: all 1s ease-out;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0 10px 2px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.footer button {
+    background-color: transparent;
+    border: none;
+    color: #d8a761;
+    box-shadow: #1c1b1b 0 0 5px;
+    height: 50%;
+    transition: all 250ms ease-in-out;
+    align-self: center;
+    font-weight: bold;
+}
+
+.footer button:hover {
+    opacity: 0.8;
+    transition: all 250ms ease-in-out;
+    box-shadow: #d8a761 0 0 1px;
+}
+
+.footer div:first-child {
+    color: rgba(243, 233, 233, 0.741);
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.footer div :last-child {
+    color: #d8a761;
+    margin-left: 8px;
+    margin-bottom: 0;
+    font-style: normal;
+    font-weight: bold;
+}

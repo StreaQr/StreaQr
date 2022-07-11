@@ -1,0 +1,504 @@
+.popupBackground {
+  z-index: 10001;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 35%;
+  position: fixed;
+}
+
+.backGround {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  z-index: 10001;
+  position: fixed;
+  height: 100%;
+  top: 0;
+}
+
+.popupCard {
+  width: 80%;
+  height: 200px;
+  max-width: 500px;
+  border: 2px solid #d8a761;
+  box-shadow: #9d7640 0 0 8px;
+  display: flex;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  flex-direction: column;
+  z-index: 100001;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-self: center;
+  animation: fadeInAnimation 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.userNameInput {
+  background-color: transparent;
+  border: none;
+  margin-left: 8px;
+  color: #ecf0f1c7;
+  outline: none;
+  border-bottom: 2px solid #d8a661ce;
+}
+
+.feedBackInput {
+  background-color: transparent;
+  border: none;
+  padding-bottom: 5px;
+  font-size: 17px;
+  width: 100%;
+  color: #ecf0f1c7;
+  outline: none;
+  border-bottom: 2px solid #d8a661ce;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cardTitle {
+  font-family: "Lato";
+  color: #d8a761;
+  font-size: 30px;
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+
+.escape {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: -17%;
+  color: #d8a761;
+  -webkit-text-size-adjust: none;
+  font-size: 40px;
+  font-weight: bolder;
+  padding: 0;
+  transition: .2s;
+}
+
+.escape::before {
+  content: '×';
+}
+
+.escape:hover,
+.escape:focus {
+  color: #a27435;
+}
+
+.cardOption {
+  align-self: center;
+  margin-bottom: 0;
+  color: #d8a761;
+
+}
+
+.button {
+  background: none;
+  align-self: flex-end;
+  border: none;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: 0;
+}
+
+.popupButton {
+  width: 130px;
+  height: 50px;
+  border: 2px solid #d8a761;
+  align-self: flex-end;
+  position: relative;
+  margin-top: 10px;
+  background-color: transparent;
+  display: flex;
+  transition: all 0.3s;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 40%;
+}
+
+.popupButtonText {
+  font-family: "Lato";
+  color: #d8a761;
+  margin-bottom: 0;
+  font-size: 20px;
+  align-self: center;
+  font-weight: bolder;
+}
+
+.popupButton:hover {
+  -webkit-animation: blob-awdawdawd 0.5s;
+  animation: blob-awdawdawd 0.5s;
+}
+
+@keyframes blob-awdawdawd {
+
+  25%,
+  50% {
+    background-color: #d8a66146;
+  }
+
+  100% {
+    background-color: "transparent";
+  }
+}
+
+.popupCancelButton {
+
+  border: none;
+  align-self: flex-end;
+  position: relative;
+  top: 0%;
+  background-color: transparent;
+}
+
+.popupCancelButtonText:hover {
+  color: #d8a761;
+}
+
+.popupCancelButtonText {
+  font-family: "Lato";
+  color: #63461d;
+  text-decoration: underline;
+  transition: all 0.1s;
+  margin-bottom: 11.5px;
+  font-size: 15px;
+  margin-right: 10px;
+  font-weight: bolder;
+}
+
+
+@media(max-width:310px) {
+
+  .cardTitle {
+    font-size: 25px;
+  }
+
+  .escape {
+    top: -28%;
+    height: 50px
+  }
+
+  .userNameIcon {
+    display: none;
+    position: absolute !important;
+    opacity: 0;
+  }
+
+  .userNameInput {
+    margin-left: 0px;
+  }
+}
+
+
+.starUnfocused svg {
+
+  font-size: 55px;
+  color: #d8a66133;
+  cursor: pointer;
+  line-height: 30px;
+}
+
+
+.starUnfocused:hover svg {
+  color: #d8a761 !important;
+}
+
+.starUnfocused:hover::before svg {
+  color: #d8a761;
+}
+
+
+.starFocused svg {
+  cursor: pointer;
+  font-size: 55px;
+  color: #d8a761;
+  line-height: 30px;
+}
+
+
+@media(max-width:385px) {
+
+  .starUnfocused::before svg {
+    font-size: 45px;
+  }
+
+  .starFocused::before svg {
+    font-size: 45px;
+  }
+}
+
+
+
+
+.spinner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner .blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #d8a761;
+  box-shadow: #9d7640 0 0 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.spinner .blob.top {
+  top: 0;
+  -webkit-animation: blob-top 1s infinite ease-in;
+  animation: blob-top 1s infinite ease-in;
+}
+
+.spinner .blob.bottom {
+  top: 100%;
+  -webkit-animation: blob-bottom 1s infinite ease-in;
+  animation: blob-bottom 1s infinite ease-in;
+}
+
+.spinner .blob.left {
+  left: 0;
+  -webkit-animation: blob-left 1s infinite ease-in;
+  animation: blob-left 1s infinite ease-in;
+}
+
+.spinner .moveBlob {
+  background: #d8a761;
+  box-shadow: #9d7640 0 0 15px;
+
+  top: 0;
+  -webkit-animation: blob-spinner-mover 1s infinite ease-in;
+  animation: blob-spinner-mover 1s infinite ease-in;
+}
+
+@-webkit-keyframes blob-bottom {
+
+  25%,
+  50%,
+  75% {
+    top: 50%;
+    left: 100%;
+  }
+
+  100% {
+    top: 0;
+    left: 50%;
+  }
+}
+
+@keyframes blob-bottom {
+
+  25%,
+  50%,
+  75% {
+    top: 50%;
+    left: 100%;
+  }
+
+  100% {
+    top: 0;
+    left: 50%;
+  }
+}
+
+@-webkit-keyframes blob-left {
+  25% {
+    top: 50%;
+    left: 0;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+    left: 50%;
+  }
+}
+
+@keyframes blob-left {
+  25% {
+    top: 50%;
+    left: 0;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+    left: 50%;
+  }
+}
+
+@-webkit-keyframes blob-top {
+  50% {
+    top: 0;
+    left: 50%;
+  }
+
+  75%,
+  100% {
+    top: 50%;
+    left: 0;
+  }
+}
+
+@keyframes blob-top {
+  50% {
+    top: 0;
+    left: 50%;
+  }
+
+  75%,
+  100% {
+    top: 50%;
+    left: 0;
+  }
+}
+
+@-webkit-keyframes blob-spinner-mover {
+
+  0%,
+  100% {
+    top: 0;
+    left: 50%;
+  }
+
+  25% {
+    top: 50%;
+    left: 100%;
+  }
+
+  50% {
+    top: 100%;
+    left: 50%;
+  }
+
+  75% {
+    top: 50%;
+    left: 0;
+  }
+}
+
+@keyframes blob-spinner-mover {
+
+  0%,
+  100% {
+    top: 0;
+    left: 50%;
+  }
+
+  25% {
+    top: 50%;
+    left: 100%;
+  }
+
+  50% {
+    top: 100%;
+    left: 50%;
+  }
+
+  75% {
+    top: 50%;
+    left: 0;
+  }
+}
+
+.selectionIconPhone {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 92%;
+  top: 10%;
+  justify-content: center;
+  cursor: pointer;
+  transition: .2s;
+  padding-bottom: 5px;
+  align-self: center;
+}
+
+.selectionIconPhone:hover {
+  transition: all 0.4s ease-out;
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.selectionIconPhone i {
+  color: #d8a761;
+  padding-left: 10px;
+  font-size: 30px;
+  width: 17%;
+  text-shadow: #9d7640 0 0 4px;
+}
+
+.selectionIconPhone p {
+  text-decoration: none;
+  width: 70%;
+  text-align: center;
+  opacity: 0.8;
+  font-weight: bolder;
+  font-family: "Lato";
+  font-size: 19px;
+  color: #ecf0f1;
+
+}
+
+.selectionIconOnline {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 92%;
+  border-bottom-width: 0px;
+  justify-content: center;
+  border-color: #9d7640;
+  padding-bottom: 5px;
+  border-radius: 5%;
+  transition: .2s;
+  border-bottom-style: solid;
+  align-self: center;
+}
+
+.selectionIconOnline:hover {
+  transition: all 0.4s ease-out;
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.selectionIconOnline i {
+  color: #d8a761;
+  padding-left: 10px;
+  font-size: 30px;
+  width: 17%;
+  text-shadow: #9d7640 0 0 4px;
+}
+
+.selectionIconOnline p {
+  text-decoration: none;
+  width: 70%;
+  text-align: center;
+  opacity: 0.8;
+  cursor: pointer;
+  font-weight: bolder;
+  font-family: "Lato";
+  font-size: 19px;
+  color: #ecf0f1;
+
+}

@@ -1,0 +1,230 @@
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 65%;
+    position: fixed;
+    width: 90%;
+    top: 15%;
+    border: 2px solid #d8a761;
+    border-radius: 10%;
+    box-shadow: #9d7640 0 0 15px;
+    left: 5%;
+    right: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    height: 65px;
+    padding-bottom: 20px;
+    left: unset;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    padding-top: 20px;
+
+}
+
+.header nav {
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    height: 65px;
+    width: 92%;
+    align-self: center;
+    background-color: transparent;
+    justify-content: space-between;
+    opacity: 1;
+    visibility: visible
+}
+
+
+.header nav button {
+    background-color: transparent;
+    border: unset;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    top: 7%;
+    z-index: 100;
+    align-self: center;
+}
+
+.header nav div {
+    font-family: "Lato";
+    text-shadow: #d8a761 1px 1px 4px;
+    color: #ecf0f1;
+    font-size: 23px;
+}
+
+
+.OrderContainer {
+    height: 55%;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 90%;
+    top: 5%;
+    border: 2px solid rgb(9, 8, 8);
+    padding: 5px;
+    left: 5%;
+    position: relative;
+}
+
+.scrollContainer {
+    height: 80%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.OrderContainer p {
+    color: #d8a761;
+    left: 4%;
+    text-decoration: underline;
+    padding-top: 8px;
+    font-size: 17px;
+    position: relative;
+}
+
+.OrderContainer p i {
+    color: #d8a761;
+    position: relative;
+    left: 5px;
+    top: 2px;
+}
+
+.orderItem {
+    color: #d8a761;
+    width: 95%;
+    margin-bottom: 0.3rem;
+    list-style-type: circle;
+    font-size: 25px;
+}
+
+.orderItem::marker {
+    color: red !important;
+}
+
+.headerAndPrice {
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    left: -6%;
+    top: -3px;
+    justify-content: space-between;
+    padding-left: 0;
+    color: #d8a761;
+}
+
+.headerAndPrice p {
+    color: #ecf0f1;
+    font-weight: bold;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.accordion__contentchild {
+    padding-left: 0.2rem;
+    position: relative;
+    top: -14px;
+
+}
+
+.accordion__contentchild button {
+    background-color: #d8a761;
+    border: none;
+    margin: 0px 13px 0px 0px;
+    transition: all .5s;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 3px 5px 3px 5px;
+}
+
+.accordion__contentchild {
+    color: #e2f1f5;
+    font-size: 15px;
+}
+
+.accordion__contentchild button:last-child {
+    margin: 0px 0px 0px 13px;
+}
+
+
+.accordion__contentchild button:hover {
+    opacity: 0.7;
+}
+
+.NotesContainer {
+    height: 17%;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 90%;
+    top: 7%;
+    border: 2px solid rgb(9, 8, 8);
+    padding: 5px;
+    left: 5%;
+    position: relative;
+}
+
+.NotesContainer p {
+    color: #d8a761;
+    left: 4%;
+    text-decoration: underline;
+    padding-top: 3px;
+    margin-bottom: 0.5rem;
+    font-size: 17px;
+    position: relative;
+}
+
+.NotesContainer p i {
+    color: #d8a761;
+    position: relative;
+    left: 5px;
+}
+
+.NotesContainer input {
+    width: 92%;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #d8a661a1;
+    color: #ecf0f1c7;
+    left: 4%;
+}
+
+
+@media(min-width:858px) {
+    .orderItem {
+        list-style-type: none;
+    }
+
+}
+
+.buttonLoading {
+    width: 55px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonLoading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #d8a761;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}

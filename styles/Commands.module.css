@@ -1,0 +1,199 @@
+.container {
+  min-height: 160vh;
+}
+
+
+.headerWrapper {
+  color: red
+}
+
+
+.main {
+
+  padding: 1.5rem 0;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  padding: 0rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+
+.box {
+  transition: all 1s ease-out;
+  position: relative;
+  width: 90%;
+  max-width: 300px;
+  border-radius: 30%;
+  padding: 5px;
+  border: 2px solid #d8a761;
+  box-shadow: #9d7640 0 0 15px;
+}
+
+.box:hover {
+  transition: all 0.4s ease-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  transform: translate(0px, -7px) scale(1.03);
+  box-shadow: #9d7640 0 0 28px;
+}
+
+.box:hover .boxinner {
+  transition: all 0.3s ease-out;
+  color: red
+}
+
+.box .boxinner {
+  transition: all 0.3s ease-out;
+  border-radius: 30%;
+  position: relative;
+  border: 2px solid #b78846;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.CardText {
+  color: #d8a761;
+  font-family: 'Roboto', sans-serif;
+  font-size: 23px;
+  font-weight: 500;
+  opacity: 0.8;
+  text-shadow: #9d7640 0 0 15px;
+  text-align: center;
+
+}
+
+
+
+
+.NotificationContainer {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  right: 10px;
+  z-index: 10001;
+  transition: all 1s ease-out;
+
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 2px;
+  border: 2px solid #d8a761;
+  box-shadow: #9d7640 0 0 8px;
+}
+
+
+.NotificationContainer:hover {
+  transition: all 0.4s ease-out;
+  transform: translate(0px, -2px) scale(1.03);
+  box-shadow: #9d7640 0 0 10px;
+}
+
+
+
+
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  margin-top: -45px;
+  /* Negative half of height. */
+  margin-left: -45px;
+  z-index: 10001;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 60px #7ac142;
+  }
+}
+
+.confirmationText {
+  width: 80%;
+  margin-left: -40%;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 22px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  z-index: 10001;
+  animation: fadeIn 1.2s ease-in-out .4s forwards, .9s both;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+.confirmationButton {
+  text-align: center;
+  font-weight: bold;
+  color: #d8a761;
+  text-decoration: underline;
+  font-size: 18px;
+  position: fixed;
+  bottom: 15px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  right: 15px;
+  z-index: 2147483001;
+}

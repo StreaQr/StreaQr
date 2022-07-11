@@ -1,0 +1,170 @@
+.container {
+  min-height: 150vh;
+}
+
+.main {
+  padding: 1.5rem 0;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  padding: 0 0rem;
+}
+
+
+.box {
+  position: relative;
+  width: 100%;
+  padding: 3px;
+  padding-top: 0px;
+  padding-bottom: 3px;
+  border-top: unset !important;
+  border-bottom: unset !important;
+  border: 2px solid #d8a761;
+  box-shadow: #9d7640 0 0 8px;
+}
+
+
+.box .boxinner {
+  position: relative;
+  border: 3px solid #b78846;
+  border-bottom-color: #d8a761;
+  border-top-color: #d8a761;
+  padding: 0px;
+}
+
+
+
+.FoodTitle {
+  color: #d8a761;
+  margin-bottom: 0px !important;
+  font-size: 23px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.textSection {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 15px 3px 15px 3px;
+  align-self: center;
+
+}
+
+.FoodDescription {
+  color: #d8a661e3;
+  padding-top: 7px;
+  margin-bottom: 5px !important;
+  font-size: 15px;
+
+}
+
+.FoodPrice {
+  align-self: center;
+  color: #d8a761;
+  font-weight: bold;
+  margin-bottom: 0px !important;
+  font-size: 20px;
+  font-family: 'Dancing Script', cursive;
+}
+
+
+.closeButton {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  left: 95%;
+  top: -10%;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  box-shadow: inset 0px 0px 4px 1.5px #d8a761;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.closeButton:after,
+.closeButton:before {
+  position: absolute;
+  content: "";
+  background-color: white;
+}
+
+.closeButton:after {
+  width: 2px;
+  height: 10px;
+  top: 6px;
+  left: 10px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.closeButton:before {
+  width: 10px;
+  height: 2px;
+  top: 10px;
+  left: 6px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.closeButton:hover {
+  transition: all 0.4s ease-out;
+  transform: scale(1.05);
+}
+
+.closeButton:hover:after,
+.closeButton:hover:before {
+  background: red;
+  transition: all 0.4s ease-out;
+}
+
+
+.cartIcon {
+  color: #d8a761;
+  position: relative;
+  top: 5px;
+  font-size: 40px !important;
+}
+
+.cartContainer {
+  border: 2px solid #b78846c2;
+  display: flex;
+  border-radius: calc(var(--i) *2.5em);
+
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  justify-content: space-around;
+  padding: 10px;
+  transition: all 1s ease-out;
+  box-shadow: #9d7640 0 0 4px;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cartContainer p {
+  padding-top: 10px;
+  position: relative;
+  top: 2px;
+  color: white;
+  font-weight: bold;
+}
+
+
+.cartContainer:hover {
+  transition: all 0.4s ease-out;
+  transform: translate(0px, -2px) scale(1.02);
+  box-shadow: #9d7640 0 0 10px;
+}

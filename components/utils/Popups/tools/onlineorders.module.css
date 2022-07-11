@@ -1,0 +1,247 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 10001;
+    background-color: rgb(10, 10, 1);
+    width: 100%;
+    user-select: none;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: visible;
+    height: 100%;
+    top: 0;
+}
+
+.container2 {
+    z-index: 10000000000001;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    user-select: none;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: visible;
+    height: 90%;
+    top: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    height: 65px;
+    padding-bottom: 20px;
+    left: unset;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    padding-top: 20px;
+
+}
+
+.header nav {
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    height: 65px;
+    width: 92%;
+    align-self: center;
+    background-color: transparent;
+    justify-content: space-between;
+    opacity: 1;
+    visibility: visible
+}
+
+
+.header nav button {
+    background-color: transparent;
+    border: unset;
+    padding: 0;
+    position: relative;
+    top: 7%;
+    align-self: center;
+}
+
+.searchContainer {
+    align-self: center;
+}
+
+.search__title {
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    color: #ff8b88;
+}
+
+.search__input {
+    width: 80%;
+    height: 100%;
+    transition: transform 250ms ease-in-out;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.741);
+    position: relative;
+    left: -2%;
+    background-color: transparent;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #575756;
+    border-radius: 0;
+}
+
+.search__input::placeholder {
+    color: rgba(255, 255, 255, 0.741);
+    letter-spacing: 1.5px;
+}
+
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10001;
+    transition: all 1s ease-out;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0 10px 2px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+
+.accordion {
+    font-size: 17px;
+    margin: 0 20px;
+}
+
+.accordion__button {
+    border: 0;
+    margin: 10px 0;
+    padding: 15px 0px 0px 0px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+    font-size: inherit;
+}
+
+.accordion__button span {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d8a761;
+    font-size: 15px;
+}
+
+.accordion__button:focus {
+    outline: none;
+}
+
+.accordion__content {
+    padding: 0 10px;
+    opacity: 0;
+    transition: all .5s;
+    height: 0;
+    margin: 0;
+    margin-top: -10px;
+    border-top: 0;
+}
+
+.accordion__content.active {
+    height: auto;
+    opacity: 1;
+    padding-top: 10px;
+}
+
+.accordion__buttonChild {
+    border: 0;
+    padding: 10px 20px 15px 0px;
+    width: 100%;
+    display: flex;
+    color: #d8a761;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: transparent;
+    align-items: center;
+    font-size: inherit;
+}
+
+.accordion__contentchild {
+    padding: 0 10px;
+    opacity: 0;
+    transition: all .5s;
+    height: 0px;
+    overflow: hidden;
+    margin: 0;
+    margin-top: -10px;
+    border-top: 0;
+}
+
+
+.accordion__contentchild.active {
+    height: auto;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.645);
+    font-size: 15px;
+    padding-bottom: 10px;
+    left: -5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 0px;
+}
+
+.price {
+    margin-bottom: 0px;
+}
+
+.arrow span {
+    font-size: 13px;
+    position: relative;
+    top: 1px;
+    align-self: center;
+    padding-right: 4px;
+}
+
+.accordion__contentchild div {
+    position: relative;
+    align-self: flex-end;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.accordion__contentchild div button {
+    background-color: #d8a761;
+    border: none;
+    margin: 0px 15px 0px 0px;
+    transition: all .5s;
+    border-radius: 50%;
+    font-size: 14px;
+    padding: 3px 5px 3px 5px;
+}
+
+.accordion__contentchild div button:last-child {
+    margin: 0px 0px 0px 15px;
+}
+
+
+.accordion__contentchild div button:hover {
+    opacity: 0.7;
+
+}
