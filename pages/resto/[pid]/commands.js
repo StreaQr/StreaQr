@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 import styles from '../../../styles/Commands.module.css'
 
 //modals
-const PopUpWindow = dynamic(import("./components/utils/popUpWindow.js"))
+const PopUpWindow = dynamic(import("components/utils/popUpWindow.js"))
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react";
