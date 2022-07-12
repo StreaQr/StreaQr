@@ -69,7 +69,7 @@ export default function AccordionItemContainer({ orders, handleBack, RestaurantN
                     "Loading": true
                 })
                 const config = {
-                    headers: { 'X-Auth-Token': process.env.X_AUTH_TOKEN }
+                    headers: { 'X-Auth-Token': process.env.NEXT_PUBLIC_X_AUTH_TOKEN }
                 };
                 let ordersList = {}
                 for (let item of keys) {

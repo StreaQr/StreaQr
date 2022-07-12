@@ -14,7 +14,7 @@ const ReceiptModal = ({ handleCancel, RestaurantName }) => {
 
             const config = {
                 headers: {
-                    'X-Auth-Token': process.env.X_AUTH_TOKEN,
+                    'X-Auth-Token': process.env.NEXT_PUBLIC_X_AUTH_TOKEN,
                     'Content-Type': 'application/json',
                     'Accept': 'application/pdf'
                 },

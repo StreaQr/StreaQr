@@ -18,7 +18,7 @@ const ConfirmationModal = ({ handleCancel, action, RestaurantName, Data, initita
         try {
             setSpinner(true)
             const config = {
-                headers: { 'X-Auth-Token': process.env.X_AUTH_TOKEN }
+                headers: { 'X-Auth-Token': process.env.NEXT_PUBLIC_X_AUTH_TOKEN }
             };
 
             const body = {

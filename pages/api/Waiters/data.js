@@ -96,29 +96,33 @@ const handler = async (req, res) => {
                     if (!existingWaiterTable)
                         return res.status(400).json({ errorMessage: "User not found" })
 
-                    let Subscription = false
-                    const date2 = new Date()
-                    if ((existingWaiterTable.Subscription.status == "Premium") && (existingWaiterTable.Subscription.expire > date2))
-                        Subscription = true
-
-                    if (Subscription == false)
-                        return res.status(400).json({ errorMessage: "feature not available on free accounts" })
 
 
 
-                    existingWaiterTable.Data.schedule.status = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
+
+                    existingWaiterTable.Data.schedule = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
                     existingWaiterTable.markModified('Data');
                     const saveData = await existingWaiterTable.save()
 
                     if (saveData.RestaurantID) {
                         const WaitersSchedulesTable = await WaitersSchedules.findOne({ RestaurantName: existingWaiterTable.RestaurantName })
+
+                        let Subscription = false
+                        const date2 = new Date()
+                        if ((WaitersSchedulesTable.Subscription.status == "Premium") && (WaitersSchedulesTable.Subscription.expire > date2))
+                            Subscription = true
+
+                        if (Subscription == false)
+                            return res.status(400).json({ errorMessage: "feature not available on free accounts" })
+
                         const branchsArray = Object.keys(WaitersSchedulesTable.Waiters)
 
                         for (let branchs of branchsArray) {
                             for (let i = 0; i < WaitersSchedulesTable.Waiters[branchs].length; i++)
                                 if (WaitersSchedulesTable.Waiters[branchs][i].ID == _id) {
-
-                                    WaitersSchedulesTable.Waiters[branchs][i].status = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
+                                    if (WaitersSchedulesTable.Waiters[branchs][i].Schedule == undefined)
+                                        WaitersSchedulesTable.Waiters[branchs][i].Schedule = {}
+                                    WaitersSchedulesTable.Waiters[branchs][i].Schedule = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
 
                                     WaitersSchedulesTable.markModified('Waiters');
                                     const saveMainRestoTable = await WaitersSchedulesTable.save()
@@ -143,17 +147,9 @@ const handler = async (req, res) => {
                     if (!existingWaiterTable)
                         return res.status(400).json({ errorMessage: "User not found" })
 
-                    let Subscription = false
-                    const date2 = new Date()
-                    if ((existingWaiterTable.Subscription.status == "Premium") && (existingWaiterTable.Subscription.expire > date2))
-                        Subscription = true
-
-                    if (Subscription == false)
-                        return res.status(400).json({ errorMessage: "feature not available on free accounts" })
                     existingWaiterTable.Data.schedule = Schedule
                     existingWaiterTable.PushToken = PushToken
                     const saveData = await existingWaiterTable.save()
-
 
                     if (saveData.RestaurantID) {
                         const WaitersSchedulesTable = await WaitersSchedules.findOne({ RestaurantName: existingWaiterTable.RestaurantName })

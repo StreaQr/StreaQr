@@ -32,7 +32,7 @@ const RateModal = ({ handleCancel, RestaurantName, Data }) => {
             try {
                 setStates({ ...states, "spinner": true })
                 const config = {
-                    headers: { 'X-Auth-Token': process.env.X_AUTH_TOKEN }
+                    headers: { 'X-Auth-Token': process.env.NEXT_PUBLIC_X_AUTH_TOKEN }
                 };
 
                 const body = {

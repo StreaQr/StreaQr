@@ -51,7 +51,6 @@ const handler = async (req, res) => {
                 await connectToDb()
                 const existingQrTable = await WaitersSchedules.findOne({ RestaurantID });
                 let Subscription = false
-                console.log(existingQrTable)
                 const date = new Date()
                 if ((existingQrTable.Subscription.status == "Premium") && (existingQrTable.Subscription.expire > date))
                     Subscription = true
@@ -105,7 +104,6 @@ const handler = async (req, res) => {
                     const randomNumber = Math.floor(Math.random() * 3) + 1
 
                     if (randomNumber == 1) {
-                        console.log("Cleared qr codes")
                         const branchsArray = Object.keys(existingQrTable.RegenCodes)
                         for (let branchs of branchsArray) {
                             let tables = Object.keys(existingQrTable.RegenCodes[branchs])
