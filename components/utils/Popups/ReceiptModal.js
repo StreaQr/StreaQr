@@ -17,6 +17,7 @@ const ReceiptModal = ({ handleCancel, RestaurantName, Data }) => {
                 OneSignal.SERVICE_WORKER_UPDATER_PATH = 'push/OneSignalSDKUpdaterWorker.js'
                 OneSignal.init({
                     appId: "de8b73bb-9a99-4de7-8f35-978357e96221",
+                    safari_web_id: "web.onesignal.auto.03c56528-3ec2-4727-882a-5ccb48032a98",
                     notifyButton: {
                         enable: true,
                         prenotify: true
