@@ -42,6 +42,7 @@ const Commands = ({ RestaurantName, Data }) => {
 
     useEffect(() => {
         let TempCookie = cookie.parse(document.cookie)
+
         if (TempCookie.Code)
             setStates({ ...states, Code: TempCookie.Code })
         else
