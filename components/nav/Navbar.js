@@ -85,9 +85,9 @@ const Navbar = ({ }) => {
                             </label>
                             <nav>
                                 <ul>
-                                    <li><Link href={"/"} passHref><a >Home</a></Link></li>
-                                    <li><Link href={"/#about"} passHref><a >About</a></Link></li>
-                                    <li><Link href={"/#contact"} passHref><a >Contact us</a></Link></li>
+                                    <li><Link href={"/"} prefetch={false} passHref><a >Home</a></Link></li>
+                                    <li><Link href={"/#about"} prefetch={false} passHref><a >About</a></Link></li>
+                                    <li><Link href={"/#contact"} prefetch={false} passHref><a >Contact us</a></Link></li>
                                 </ul>
                             </nav>
                         </header>
@@ -147,9 +147,9 @@ const Navbar = ({ }) => {
                         </label>
                         <nav>
                             <ul>
-                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5, }}><Link href={"/"} passHref><a >Home</a></Link></li>
-                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5 }}><Link href={"/#about"} passHref><a  >About</a></Link></li>
-                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5 }}><Link href={"/#contact"} passHref><a >Contact us</a ></Link></li>
+                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5, }}><Link prefetch={false} href={"/"} passHref><a >Home</a></Link></li>
+                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5 }}><Link prefetch={false} href={"/#about"} passHref><a  >About</a></Link></li>
+                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5 }}><Link prefetch={false} href={"/#contact"} passHref><a >Contact us</a ></Link></li>
                             </ul>
                         </nav>
                     </header>
