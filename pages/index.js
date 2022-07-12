@@ -38,8 +38,7 @@ export default function Home() {
     const cookieCheker = async () => {
       const cookie = (await import('cookie'))
       let TempCookie = cookie.parse(document.cookie)
-      console.log(TempCookie.Resto)
-      if (TempCookie.Resto) {
+      if (TempCookie.Resto != undefined) {
         setPopUp(TempCookie.Resto)
       }
     }
