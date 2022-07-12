@@ -116,7 +116,11 @@ const Navbar = ({ }) => {
             if (document.body.style.overflowY != "auto")
                 document.body.style.overflowY = "auto"
         }
-        var inputs = document.getElementsByTagName("input");
+        const closeMenu = () => {
+            var inputs = document.getElementsByTagName("input");
+            inputs[0].checked = false
+        }
+
         return (
             <section style={{ zIndex: 100, position: "sticky" }} id="navbar">
                 <div className="align">
@@ -143,9 +147,9 @@ const Navbar = ({ }) => {
                         </label>
                         <nav>
                             <ul>
-                                <li onClick={() => inputs[0].checked = false} style={{ lineHeight: 1.5, }}><Link href={"/"} passHref><a >Home</a></Link></li>
-                                <li onClick={() => inputs[0].checked = false} style={{ lineHeight: 1.5 }}><Link href={"/#about"} passHref><a  >About</a></Link></li>
-                                <li onClick={() => inputs[0].checked = false} style={{ lineHeight: 1.5 }}><Link href={"/#contact"} passHref><a >Contact us</a ></Link></li>
+                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5, }}><Link href={"/"} passHref><a >Home</a></Link></li>
+                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5 }}><Link href={"/#about"} passHref><a  >About</a></Link></li>
+                                <li onClick={() => closeMenu()} style={{ lineHeight: 1.5 }}><Link href={"/#contact"} passHref><a >Contact us</a ></Link></li>
                             </ul>
                         </nav>
                     </header>
