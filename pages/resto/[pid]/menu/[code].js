@@ -17,7 +17,7 @@ export async function getServerSideProps(context) {
     const { params } = context
     const gen = new Date();
     const gen2 = new Date()
-
+    gen2.setHours(gen2.getHours() + 1)
     gen.setDate(gen.getDate() + 1);
     const QrCodeData = JSON.stringify(params.code).split("_")
 

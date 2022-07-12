@@ -7,6 +7,7 @@ import WaiterTable from "../../../lib/models/WaiterModel"
 const handler = async (req, res) => {
 
     try {
+        console.log("HERE")
         const { method } = req;
         if (method !== "POST") {
             return res.status(400).json({ errorMessage: "Only POST is allowed", });
