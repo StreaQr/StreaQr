@@ -128,8 +128,7 @@ export default function Home() {
               </div>
             </div>
             <video className={`${styles.section1Animation} lazy`} autoPlay loop muted playsInline style={{ height: "auto", alignSelf: 'center', maxHeight: "740px", width: "45vw", maxWidth: "412pxp", display: "block", margin: "0px", }} poster='poster.webp'  >
-              <source data-src="animatedvideo.mov" type="video/mov" />
-              <source data-src="animatedVideo.mp4" type="video/mp4" />
+              <source data-src="https://res.cloudinary.com/streaqr/video/upload/v1657639474/i61snyvil2ywab76gtv3.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </section>
