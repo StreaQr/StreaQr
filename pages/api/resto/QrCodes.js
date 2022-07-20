@@ -41,8 +41,6 @@ const handler = async (req, res) => {
             }
 
             existingUser.RestoData.RestoBranches = data
-
-
             const saveData = await existingUser.save();
 
             if (saveData.Email) {

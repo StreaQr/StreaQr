@@ -7,7 +7,7 @@ import WaiterTable from "../../../lib/models/WaiterModel"
 const handler = async (req, res) => {
 
     try {
-        console.log("HERE")
+
         const { method } = req;
         if (method !== "POST") {
             return res.status(400).json({ errorMessage: "Only POST is allowed", });
@@ -35,6 +35,7 @@ const handler = async (req, res) => {
                             })
 
                             let sendNoti = await expo.sendPushNotificationsAsync(messages);
+
                             if ((sendNoti[0] != undefined) && (sendNoti[0].status == "ok")) {
                                 const date = new Date()
                                 const saveData = await WaiterNotifications(Waiter.ID, `Order_${date}_Table ${Table} is ready to order`)
@@ -46,7 +47,12 @@ const handler = async (req, res) => {
                                 throw e
                         }
                     } catch (e) {
-                        return res.status(400).json({ errorMessage: "Notification was not sent please try again" })
+                        console.log(e)
+                        const date = new Date()
+                        const saveData = await WaiterNotifications(Waiter.ID, `Order_${date}_Table ${Table} is ready to order`)
+                        if (!saveData)
+                            return res.status(400).json({ errorMessage: "Could not save order" })
+                        res.send("w")
                     }
                 } else if (action == "orderOnline") {
                     try {
@@ -75,7 +81,11 @@ const handler = async (req, res) => {
                                 throw e
                         }
                     } catch (e) {
-                        return res.status(400).json({ errorMessage: "Notification was not sent please try again" })
+                        const date = new Date()
+                        const saveData = await WaiterNotifications(Waiter.ID, { "Message": `OrderOnline_${date}_Table ${Table} online order_${Code}`, "orders": orders })
+                        if (!saveData)
+                            return res.status(400).json({ errorMessage: "Could not save order" })
+                        res.send("w")
                     }
                 } else if (action === "callWaiter") {
                     try {
@@ -94,13 +104,16 @@ const handler = async (req, res) => {
                                 if (!saveData)
                                     return res.status(400).json({ errorMessage: "Could not save order" })
                                 res.send("w")
-
                             }
                             else
                                 throw e
                         }
                     } catch (e) {
-                        return res.status(400).json({ errorMessage: "Notification was not sent please try again" })
+                        const date = new Date()
+                        const saveData = await WaiterNotifications(Waiter.ID, `Call_${date}_Table ${Table} is calling you`)
+                        if (!saveData)
+                            return res.status(400).json({ errorMessage: "Could not save order" })
+                        res.send("w")
                     }
 
                 } else if (action === "Receipt") {
@@ -154,7 +167,19 @@ const handler = async (req, res) => {
                                     throw e
                             }
                         } catch (e) {
-                            return res.status(400).json({ errorMessage: "Notification was not sent please try again" })
+                            const date = new Date()
+                            let notificationMessage = `Receipt_${date}_${title}_${Code}`
+                            if (ReceiptType.DigitalReceipt) {
+                                const { NotificationID } = req.body
+                                if ((NotificationID != undefined) && (typeof (NotificationID) == "string"))
+                                    notificationMessage = `OnlineReceipt_${date}_${title}_${Code}_${NotificationID}`
+                                else
+                                    notificationMessage = `OnlineReceipt_${date}_${title}_${Code}`
+                            }
+                            const saveData = await WaiterNotifications(Waiter.ID, notificationMessage)
+                            if (!saveData)
+                                return res.status(400).json({ errorMessage: "Could not save order" })
+                            res.send("w")
                         }
                     }
                 } else if (action === "Rating") {
@@ -201,6 +226,19 @@ const handler = async (req, res) => {
                         existingWaiterTable.markModified('Ratings');
 
                         const saveData = await existingWaiterTable.save()
+                        if (Rating == 5)
+                            if (Expo.isExpoPushToken(PushToken)) {
+                                messages.push({
+                                    to: PushToken,
+                                    sound: 'default',
+                                    title: "Congratulation 🎉🎉",
+                                    body: `Table ${Table} has given you 5 stars!\nKeep up the good work 💪`,
+
+                                })
+                                let sendNoti = await expo.sendPushNotificationsAsync(messages);
+
+                            }
+
                         if (saveData.UserName)
                             res.send("w")
                     }

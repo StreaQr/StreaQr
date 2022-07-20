@@ -45,7 +45,6 @@ export default async function ForgotPassword(req, res) {
                 existingUser.Codehash = codeHash
                 existingUser.CodeDate = time
 
-
                 const saveData = await existingUser.save();
 
                 if (saveData.Email) {
@@ -131,7 +130,7 @@ export default async function ForgotPassword(req, res) {
 
                     return res.status(401).json({ errorMessage: "This code doesn't exist" });
                 }
-
+                
                 await connectToDb();
                 const existingUser = await Resto.findOne({ Email });
                 if (!existingUser)

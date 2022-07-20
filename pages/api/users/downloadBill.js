@@ -5,6 +5,7 @@ import handlers from 'handlebars';
 import QrCodeValidator from "../../../middleware/QrCodeValidator"
 import ReceiptTable from "../../../lib/models/ReceiptsModel"
 import connectToDb from "../../../lib/db"
+import path from 'path'
 import rateLimit from "../../../lib/helpers/rate-limiter"
 
 const limiter = rateLimit({
@@ -29,7 +30,7 @@ const handler = async (req, res) => {
 
 
             // read our invoice-template.html file using node fs module
-            const file = fs.readFileSync('https://streaqr.vercel.app/receipt.html', 'utf8');
+            const file = fs.readFileSync(path.resolve('./public', "receipt.html"), 'utf8');
 
             // compile the file with handlebars and inject the customerName variable
             const template = handlers.compile(`${file}`);

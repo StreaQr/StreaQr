@@ -49,7 +49,7 @@ const RateModal = ({ handleCancel, RestaurantName, Data }) => {
                 if (clientSecret == "w") {
                     const CookieDate = new Date;
                     CookieDate.setFullYear(CookieDate.getFullYear() + 1);
-                    document.cookie = 'userName=alain; expires=' + CookieDate.toUTCString() + ';';
+                    document.cookie = `userName=${states.UserName}; expires=` + CookieDate.toUTCString() + ';';
                     setStates({ ...states, "spinner": false })
                     handleCancel("SuccessFeedback")
                 }

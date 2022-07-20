@@ -46,18 +46,22 @@ const ReceiptModal = ({ handleCancel, RestaurantName, Data }) => {
         }
 
     async function submit() {
-        OneSignal.push(function () {
-            OneSignal.isPushNotificationsEnabled(function (isEnabled) {
-                if (isEnabled)
-                    OneSignal.getUserId(function (userId) {
-                        console.log("OneSignal User ID:", userId);
-                        sendRequest(userId)
-                    });
-                else
-                    sendRequest()
-            });
+        if ((!ReceiptTypeSelection.DigitalReceipt) && (ReceiptTypeSelection.PaperReceipt)) {
+            sendRequest()
+        } else
+            OneSignal.push(function () {
+                OneSignal.isPushNotificationsEnabled(function (isEnabled) {
+                    console.log(isEnabled)
+                    if (isEnabled)
+                        OneSignal.getUserId(function (userId) {
+                            console.log("OneSignal User ID:", userId);
+                            sendRequest(userId)
+                        });
+                    else
+                        sendRequest()
+                });
 
-        });
+            });
         async function sendRequest(id) {
             try {
                 setSpinner(true)

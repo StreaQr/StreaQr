@@ -168,7 +168,7 @@ const Menu = ({ Data, RestoName, OnlineMenu }) => {
                     </div>
                 </div>
             </section>
-            {(Categories.length > 0) ?
+            {((Categories.length > 0) && (OnlineMenu)) ?
                 <p style={{ color: "#d8a761", flexDirection: 'row', display: 'flex', justifyContent: "center", opacity: 0.7, fontWeight: 'bold', position: 'relative', top: "-10px" }}>or</p>
                 :
                 null

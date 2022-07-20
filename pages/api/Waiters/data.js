@@ -100,7 +100,7 @@ const handler = async (req, res) => {
 
 
 
-                    existingWaiterTable.Data.schedule = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
+                    existingWaiterTable.Data.schedule.status = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
                     existingWaiterTable.markModified('Data');
                     const saveData = await existingWaiterTable.save()
 
@@ -122,7 +122,7 @@ const handler = async (req, res) => {
                                 if (WaitersSchedulesTable.Waiters[branchs][i].ID == _id) {
                                     if (WaitersSchedulesTable.Waiters[branchs][i].Schedule == undefined)
                                         WaitersSchedulesTable.Waiters[branchs][i].Schedule = {}
-                                    WaitersSchedulesTable.Waiters[branchs][i].Schedule = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
+                                    WaitersSchedulesTable.Waiters[branchs][i].status = { "onShift": shift, "date": `${date.getDate()}-${today}_${FromTo}` }
 
                                     WaitersSchedulesTable.markModified('Waiters');
                                     const saveMainRestoTable = await WaitersSchedulesTable.save()

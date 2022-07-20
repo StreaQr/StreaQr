@@ -3,6 +3,7 @@ import bcrypt from "bcrypt"
 import Resto from '../../../lib/models/RestoModel';
 import GetCookie from "../../../lib/helpers/cookie"
 import WaitersSchedules from "../../../lib/models/WaitersSchedules";
+import sgMail from "@sendgrid/mail"
 import connectToDb from "../../../lib/db"
 const limiter = rateLimit({
     interval: 120 * 1000, // 60 seconds
@@ -65,7 +66,7 @@ export default async function Login(req, res) {
                 const saveData = await existingUser.save();
 
                 if (saveData.Email) {
-
+                    console.log(code)
                     return new Promise((resolve, reject) => {
                         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
                         const msg = {
